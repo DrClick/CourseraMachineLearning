@@ -18,14 +18,15 @@ for iter = 1:num_iters
     %
 
 
+    % create a temporary vector to hold the new values of theta
+    newTheta = zeros(size(X,2),1);
 
+    % loop through each theta and update it
+    for i = 1:size(X,2)
+        newTheta(i) = theta(i) - alpha/length(y) * sum((X * theta - y) .* X(:,i));
+    end
 
-
-
-
-
-
-
+    theta = newTheta;
 
     % ============================================================
 
